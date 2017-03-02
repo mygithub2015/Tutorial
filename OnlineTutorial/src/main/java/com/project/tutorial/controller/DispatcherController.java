@@ -45,6 +45,7 @@ public class DispatcherController {
 		List<Course> listOfCourses = this.courseService.getListOfCourses();
 		
 		if(!listOfCourses.contains(c)){
+			
 		System.out.println("in controller addCourse with Course as "+c);
 		this.courseService.addCourse(c);
 		 
