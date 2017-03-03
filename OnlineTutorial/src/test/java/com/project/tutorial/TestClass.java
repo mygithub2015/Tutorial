@@ -22,6 +22,7 @@ public class TestClass {
 		for(Course o : service.getListOfCourses()){
 			
 			System.out.println(o);
+			
 		}
 	}
 
