@@ -1,0 +1,31 @@
+UI
+---------
+Q1. a question??
+options:
+a. b. c. d
+
+Explanations:
+Related Links:
+
+Loading of questions should be dynamic
+
+Table: questions_answers
+--------------------------
+Columns:
+----------------
+ID
+subject - unique
+question - unique
+answer - unique
+
+Table: answer_explanations
+----------------------------
+Columns:
+-------------
+
+ID - PK
+question_id - FK references to questions_answers ID column
+explanations
+related_link
+
+
