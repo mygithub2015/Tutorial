@@ -7,19 +7,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
-@Table (name = "Courses")
+
 
 public class Course {
 	
 	
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="course_id")
 	private int courseId;
 	
-	@Column(name="course_name", nullable = false)
 	
 	private String courseName;
 
