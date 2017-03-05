@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+        
+<hibernate-mapping package="com.project.tutorial.model">
+
+	<class name="QuestionsAnswers" table="questions_answers">
+	
+		<id name="questionId" column="question_id">
+			<generator class="identity"/>
+		</id>
+		
+		
+		<!-- <many-to-one name="course" class="com.project.tutorial.model.Course"  column="course_id" unique="true" not-null="true"
+            cascade="all" >
+		
+		</many-to-one> -->
+		<property name="courseId" column="course_id" not-null="true"> </property>
+		
+		
+		<property name="question" column="question"  not-null="true" unique="true"/>
+		<property name="optionA" column="option_A"  not-null="true"/>
+		<property name="optionB" column="option_B"  not-null="true"/>
+		<property name="optionC" column="option_C"  not-null="true" />
+		<property name="optionD" column="option_D"  not-null="true" />
+
+		<property name="answer" column="answer"  not-null="true"/>
+		<property name="explanations" column="explanations"  />
+		<property name="relatedLinks" column="related_links"  />
+
+		
+	</class>	
+</hibernate-mapping>

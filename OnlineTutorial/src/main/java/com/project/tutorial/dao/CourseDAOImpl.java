@@ -2,10 +2,12 @@ package com.project.tutorial.dao;
 
 import java.util.List;
 
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 import com.project.tutorial.model.Course;
+import com.project.tutorial.model.QuestionsAnswers;
 
 public class CourseDAOImpl implements CourseDAO{
 	
@@ -51,11 +53,28 @@ public class CourseDAOImpl implements CourseDAO{
 
 	public Course getCourseById(int courseId) {
 		// TODO Auto-generated method stub
-		return null;
+		Session session = this.sessionFactory.getCurrentSession();
+		Course c = (Course) session.get(Course.class, courseId);
+		return c;
 	}
 
 	public void removeCourse(Course c) {
 		// TODO Auto-generated method stub
+		
+	}
+
+	public void addQuestionsAnswers(QuestionsAnswers qa) throws HibernateException{
+		
+		try{
+			System.out.println("In Dao, qa as "+qa);
+			
+			Session session = this.sessionFactory.getCurrentSession();
+			
+			session.persist(qa);
+		}catch(HibernateException he){
+			System.out.println("some exception data didnot get saved");
+			he.printStackTrace();
+		}
 		
 	}
 

@@ -3,6 +3,7 @@ package com.project.tutorial.service;
 import java.util.List;
 
 import com.project.tutorial.model.Course;
+import com.project.tutorial.model.QuestionsAnswers;
 
 public interface CourseService {
 	
@@ -16,5 +17,6 @@ public interface CourseService {
 	
 	void removeCourse(Course c);
 	
+	void addQuestionsAnswers(QuestionsAnswers qa);
 
 }

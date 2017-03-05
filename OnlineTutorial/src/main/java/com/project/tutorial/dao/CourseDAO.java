@@ -3,6 +3,7 @@ package com.project.tutorial.dao;
 import java.util.List;
 
 import com.project.tutorial.model.Course;
+import com.project.tutorial.model.QuestionsAnswers;
 
 public interface CourseDAO {
 	
@@ -15,6 +16,8 @@ public interface CourseDAO {
 	Course getCourseById(int courseId);
 	
 	void removeCourse(Course c);
+
+	void addQuestionsAnswers(QuestionsAnswers qa);
 	
 	
 

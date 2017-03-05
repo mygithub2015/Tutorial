@@ -6,6 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.project.tutorial.dao.CourseDAO;
 import com.project.tutorial.model.Course;
+import com.project.tutorial.model.QuestionsAnswers;
 
 
 
@@ -40,13 +41,21 @@ public class CourseServiceImpl implements CourseService{
 		
 	}
 
+	@Transactional
 	public Course getCourseById(int courseId) {
 		// TODO Auto-generated method stub
-		return null;
+		return this.courseDao.getCourseById(courseId);
 	}
 
 	public void removeCourse(Course c) {
 		// TODO Auto-generated method stub
+		
+	}
+
+	@Transactional
+	public void addQuestionsAnswers(QuestionsAnswers qa) {
+		// TODO Auto-generated method stub
+		this.courseDao.addQuestionsAnswers(qa);
 		
 	}
 

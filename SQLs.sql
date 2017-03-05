@@ -21,3 +21,5 @@ CREATE TABLE `Courses` (
   `course_name` varchar(20) NOT NULL DEFAULT '',
    PRIMARY KEY (`course_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+delete from Courses where course_name=`HTML`;

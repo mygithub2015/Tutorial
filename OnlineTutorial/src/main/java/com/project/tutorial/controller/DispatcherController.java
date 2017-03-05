@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.project.tutorial.model.Course;
+import com.project.tutorial.model.QuestionsAnswers;
 import com.project.tutorial.service.CourseService;
 
 @Controller
@@ -39,6 +40,7 @@ public class DispatcherController {
 		model.addAttribute("listCourses", this.courseService.getListOfCourses());
 		return "Test";
 	}
+	
 	@RequestMapping(value = "/course/add", method = RequestMethod.POST)
 	public String addCourse(@ModelAttribute("course") Course c){
 		
@@ -61,6 +63,30 @@ public class DispatcherController {
 		
 	}
 	
+	@RequestMapping(value = "/questionsAnswers", method = RequestMethod.GET)
+	public String addQuestionsAnswers(Model model){
+		
+		System.out.println("in questionsAnswers page");
+		
+		model.addAttribute("questionsAnswers", new QuestionsAnswers());
+		
+		return "AddQuestionsAnswers";
+	}
+	
+	@RequestMapping(value = "/add/questionsAnswers", method = RequestMethod.POST)
+	public String addQuestionsAnswers(@ModelAttribute("questionsAnswers") QuestionsAnswers qa){
+		
+	/*	int courseId = qa.getCourseId();
+		
+		Course c = this.courseService.getCourseById(courseId);
+		
+		qa.setCourse(c);
+		*/
+		this.courseService.addQuestionsAnswers(qa);
+		
+		return "redirect:/questionsAnswers";
+		
+	}
 	
 	
 
