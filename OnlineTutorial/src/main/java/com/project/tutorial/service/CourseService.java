@@ -18,5 +18,7 @@ public interface CourseService {
 	void removeCourse(Course c);
 	
 	void addQuestionsAnswers(QuestionsAnswers qa);
+	
+	List<QuestionsAnswers> getListOfQnsAns();
 
 }

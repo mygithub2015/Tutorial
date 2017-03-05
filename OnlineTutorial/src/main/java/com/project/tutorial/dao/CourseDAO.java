@@ -18,6 +18,8 @@ public interface CourseDAO {
 	void removeCourse(Course c);
 
 	void addQuestionsAnswers(QuestionsAnswers qa);
+
+	List<QuestionsAnswers> getListOfQnsAns();
 	
 	
 

@@ -59,4 +59,9 @@ public class CourseServiceImpl implements CourseService{
 		
 	}
 
+	@Transactional
+	public List<QuestionsAnswers> getListOfQnsAns() {
+		return this.courseDao.getListOfQnsAns();
+	}
+
 }

@@ -69,12 +69,15 @@ public class DispatcherController {
 		System.out.println("in questionsAnswers page");
 		
 		model.addAttribute("questionsAnswers", new QuestionsAnswers());
+		List<QuestionsAnswers> listOfQnsAns =  this.courseService.getListOfQnsAns();
+		model.addAttribute("listOfQnsAns",listOfQnsAns);
+		System.out.println(listOfQnsAns);
 		
-		return "AddQuestionsAnswers";
+		return "QuestionsAnswers";
 	}
 	
 	@RequestMapping(value = "/add/questionsAnswers", method = RequestMethod.POST)
-	public String addQuestionsAnswers(@ModelAttribute("questionsAnswers") QuestionsAnswers qa){
+	public String addQuestionsAnswers(@ModelAttribute("questionsAnswers") QuestionsAnswers qa, Model model){
 		
 	/*	int courseId = qa.getCourseId();
 		
@@ -82,9 +85,14 @@ public class DispatcherController {
 		
 		qa.setCourse(c);
 		*/
+		
+		List<QuestionsAnswers> listOfQnsAns =  this.courseService.getListOfQnsAns();
+		model.addAttribute("listOfQnsAns",listOfQnsAns);
+		System.out.println("In DispatcherController.addQuestionsAnswers method");
+		System.out.println(listOfQnsAns);
 		this.courseService.addQuestionsAnswers(qa);
 		
-		return "redirect:/questionsAnswers";
+		return "QuestionsAnswers";
 		
 	}
 	

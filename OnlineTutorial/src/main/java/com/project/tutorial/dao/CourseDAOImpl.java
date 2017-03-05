@@ -66,7 +66,7 @@ public class CourseDAOImpl implements CourseDAO{
 	public void addQuestionsAnswers(QuestionsAnswers qa) throws HibernateException{
 		
 		try{
-			System.out.println("In Dao, qa as "+qa);
+			System.out.println("In CourseDaoImpl.addQuestionsAnswers, qa as "+qa);
 			
 			Session session = this.sessionFactory.getCurrentSession();
 			
@@ -75,6 +75,29 @@ public class CourseDAOImpl implements CourseDAO{
 			System.out.println("some exception data didnot get saved");
 			he.printStackTrace();
 		}
+		
+	}
+
+	public List<QuestionsAnswers> getListOfQnsAns() {
+		// TODO Auto-generated method stub
+		List<QuestionsAnswers> listOfQnsAns = null;
+		try{
+			System.out.println("In CourseDaoImpl.getListOfQnsAns");
+			
+			Session session = this.sessionFactory.getCurrentSession();
+			
+			listOfQnsAns = session.createQuery("from QuestionsAnswers").list();
+			
+			System.out.println("listOfQnsAns: "+listOfQnsAns);
+			
+			return listOfQnsAns;
+			
+			
+		}catch(HibernateException he){
+			System.out.println("some exception data didnot get saved");
+			he.printStackTrace();
+		}
+		return listOfQnsAns;
 		
 	}
 
