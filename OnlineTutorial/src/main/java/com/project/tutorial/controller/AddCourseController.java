@@ -9,18 +9,19 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.project.tutorial.model.Course;
 import com.project.tutorial.model.QuestionsAnswers;
 import com.project.tutorial.service.CourseService;
 
 @Controller
-public class DispatcherController {
+public class AddCourseController {
 	
 	
 	private CourseService courseService;
 	
-	public  DispatcherController() {
+	public  AddCourseController() {
 		// TODO Auto-generated constructor stub
 	
 		System.out.println("in controller");
@@ -32,13 +33,14 @@ public class DispatcherController {
 		this.courseService = service;
 	}
 	
-	@RequestMapping(value = "/courses", method = RequestMethod.GET)
-	public String listCourses(Model model) {
-		
+	@RequestMapping(value = {"/","/courses/add"}, method = RequestMethod.GET)
+	public ModelAndView listCourses() {
+		ModelAndView model = new ModelAndView();
 		System.out.println("in listCourses");
-		model.addAttribute("course", new Course());
-		model.addAttribute("listCourses", this.courseService.getListOfCourses());
-		return "Test";
+		model.addObject("course", new Course());
+		model.addObject("listCourses", this.courseService.getListOfCourses());
+		model.setViewName("AddCourse");
+		return model;
 	}
 	
 	@RequestMapping(value = "/course/add", method = RequestMethod.POST)
@@ -59,43 +61,8 @@ public class DispatcherController {
 			this.courseService.updateCourse(c);
 		}
 		
-		return "redirect:/courses";
+		return "redirect:/courses/add";
 		
 	}
-	
-	@RequestMapping(value = "/questionsAnswers", method = RequestMethod.GET)
-	public String addQuestionsAnswers(Model model){
-		
-		System.out.println("in questionsAnswers page");
-		
-		model.addAttribute("questionsAnswers", new QuestionsAnswers());
-		List<QuestionsAnswers> listOfQnsAns =  this.courseService.getListOfQnsAns();
-		model.addAttribute("listOfQnsAns",listOfQnsAns);
-		System.out.println(listOfQnsAns);
-		
-		return "QuestionsAnswers";
-	}
-	
-	@RequestMapping(value = "/add/questionsAnswers", method = RequestMethod.POST)
-	public String addQuestionsAnswers(@ModelAttribute("questionsAnswers") QuestionsAnswers qa, Model model){
-		
-	/*	int courseId = qa.getCourseId();
-		
-		Course c = this.courseService.getCourseById(courseId);
-		
-		qa.setCourse(c);
-		*/
-		
-		List<QuestionsAnswers> listOfQnsAns =  this.courseService.getListOfQnsAns();
-		model.addAttribute("listOfQnsAns",listOfQnsAns);
-		System.out.println("In DispatcherController.addQuestionsAnswers method");
-		System.out.println(listOfQnsAns);
-		this.courseService.addQuestionsAnswers(qa);
-		
-		return "QuestionsAnswers";
-		
-	}
-	
-	
 
 }

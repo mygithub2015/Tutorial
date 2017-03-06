@@ -13,6 +13,7 @@
 	</style>
 </head>
 <body>
+<a href='AddQuestionsAnswers'>questionsAnswers</a> | <a href='showQuestionsAnswers'>showQuestionsAnswers</a>
 <h1>
 	Add a Course
 </h1>

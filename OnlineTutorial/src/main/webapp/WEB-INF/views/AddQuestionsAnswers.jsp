@@ -6,13 +6,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Add Questions And Answers</title>
 </head>
 <body>
 	<h2>
 		Add Questions And Answers
 	</h2>
-	<c:url var="addAction" value="/add/questionsAnswers"></c:url>
+	<c:url var="addAction" value="/AddQuestionsAnswers"></c:url>
 	<div id="questionAnswerDiv">
 		<fieldset>
 			<legend>Questions And Answers</legend>
