@@ -33,7 +33,7 @@ public class AddCourseController {
 		this.courseService = service;
 	}
 	
-	@RequestMapping(value = {"/","/courses/add"}, method = RequestMethod.GET)
+	@RequestMapping(value = {"addCourse"}, method = RequestMethod.GET)
 	public ModelAndView listCourses() {
 		ModelAndView model = new ModelAndView();
 		System.out.println("in listCourses");
@@ -43,7 +43,7 @@ public class AddCourseController {
 		return model;
 	}
 	
-	@RequestMapping(value = "/course/add", method = RequestMethod.POST)
+	@RequestMapping(value = "addCourse", method = RequestMethod.POST)
 	public String addCourse(@ModelAttribute("course") Course c){
 		
 		List<Course> listOfCourses = this.courseService.getListOfCourses();
@@ -61,7 +61,7 @@ public class AddCourseController {
 			this.courseService.updateCourse(c);
 		}
 		
-		return "redirect:/courses/add";
+		return "redirect:addCourse";
 		
 	}
 
