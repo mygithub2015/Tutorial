@@ -9,11 +9,12 @@
 <title>Add Questions And Answers</title>
 </head>
 <body>
+<jsp:include page="Header.jsp" />
 	<h2>
 		Add Questions And Answers
 	</h2>
 	<c:url var="addAction" value="/AddQuestionsAnswers"></c:url>
-	<div id="questionAnswerDiv">
+	<div id="questionAnswerDiv" style="margin:20px;">
 		<fieldset>
 			<legend>Questions And Answers</legend>
 			<form:form action="${addAction}" commandName="questionsAnswers">
@@ -88,6 +89,7 @@
 			</form:form>
 		</fieldset>
 	</div>
+ <jsp:include page="Footer.jsp" />
 
 </body>
 </html>

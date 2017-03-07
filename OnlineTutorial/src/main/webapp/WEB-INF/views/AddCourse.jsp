@@ -13,6 +13,10 @@
 	</style>
 </head>
 <body>
+
+ <jsp:include page="Header.jsp" />
+
+<div id="courseDiv" style="margin:20px">
 <h1>
 	Add a Course
 </h1>
@@ -75,5 +79,8 @@
 	</c:forEach>
 	</table>
 </c:if>
+</div>
+ <jsp:include page="Footer.jsp" />
+
 </body>
 </html>

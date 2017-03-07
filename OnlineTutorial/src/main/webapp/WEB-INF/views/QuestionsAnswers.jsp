@@ -9,6 +9,9 @@
 <title>Questions And Answers</title>
 </head>
 <body>
+
+<jsp:include page="Header.jsp" />
+<div style="margin:20px;">
 	<fieldset>
 		<legend>Questions And Answers</legend>
 		<c:if test="${!empty listOfQnsAns}">
@@ -58,6 +61,8 @@
 			</table>
 		</c:if>
 	</fieldset>
+	</div>
+ <jsp:include page="Footer.jsp" />
 
 </body>
 </html>
