@@ -76,7 +76,7 @@ li a:hover:not(.active) {
 			
 			<tr>
 				<td><img id="logo" alt="image"
-					src="/resources/skillfunda.jpg"
+					src="/resources/images/skillfunda.jpg"
 					style="width: 243px; height: 144px"></td>
 
 				<td style="width: 1291px;">

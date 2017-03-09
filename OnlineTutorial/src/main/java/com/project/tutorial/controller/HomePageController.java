@@ -25,7 +25,7 @@ private CourseService courseService;
 		this.courseService = service;
 	}
 	
-	@RequestMapping(value="/")
+	@RequestMapping(value="/home")
 	public String loadHomePage(){
 		
 		System.out.println("in HomePageController.loadHomePage method");
