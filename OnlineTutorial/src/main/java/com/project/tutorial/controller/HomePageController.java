@@ -25,13 +25,13 @@ private CourseService courseService;
 		this.courseService = service;
 	}
 	
-	@RequestMapping(value="/home")
+	/*@RequestMapping(value="/home")
 	public String loadHomePage(){
 		
 		System.out.println("in HomePageController.loadHomePage method");
 		return "Index"; //calling Index.jsp
 		
-	}
+	}*/
 	
 
 }

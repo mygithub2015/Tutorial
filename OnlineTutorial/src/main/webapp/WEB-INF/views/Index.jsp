@@ -6,12 +6,21 @@
 <html>
 <head>
 <style>
+div{
+margin-right:20px;
+}
 
 </style>
+
 </head>
 <body>
  <jsp:include page="Header.jsp" />
-<h2>This is index page</h2>
+
+ <br/>
+ <br/>
+<marquee><h2>This is index page</h2></marquee>
+<br/>
+<br/>
  <jsp:include page="Footer.jsp" />
 </body>
 </html>

@@ -15,13 +15,14 @@ public class UserAccessController {
 	
 	
 
-	@RequestMapping(value = {"/","/welcome**" }, method = RequestMethod.GET)
+	@RequestMapping(value = {"/","/home**" }, method = RequestMethod.GET)
 	public ModelAndView defaultPage() {
 
 	  ModelAndView model = new ModelAndView();
 	  model.addObject("title", "Spring Security Login Form - Database Authentication");
 	  model.addObject("message", "This is default page!");
-	  model.setViewName("Welcome");
+	 // model.setViewName("Welcome");
+	  model.setViewName("Index");
 	  return model;
 
 	}
@@ -32,7 +33,7 @@ public class UserAccessController {
 	  ModelAndView model = new ModelAndView();
 	  model.addObject("title", "Spring Security Login Form - Database Authentication");
 	  model.addObject("message", "This page is for ROLE_ADMIN only!");
-	  model.setViewName("Admin");
+	  model.setViewName("home");
 	  return model;
 
 	}
@@ -41,16 +42,14 @@ public class UserAccessController {
 	public ModelAndView login(@RequestParam(value = "error", required = false) String error,
 		@RequestParam(value = "logout", required = false) String logout) {
 
-	String status = "";
 	  ModelAndView model = new ModelAndView();
 	  if (error != null) {
 		model.addObject("error", "Invalid username and password!");
-		status="error";
 	  }
 
 	  if (logout != null) {
 		model.addObject("msg", "You've been logged out successfully.");
-		status="logout";
+		
 	  }
 	 
 	  model.setViewName("Login");
