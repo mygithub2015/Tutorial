@@ -37,7 +37,7 @@ public class UserAccessController {
 
 	}
 
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public ModelAndView login(@RequestParam(value = "error", required = false) String error,
 		@RequestParam(value = "logout", required = false) String logout) {
 
@@ -52,17 +52,17 @@ public class UserAccessController {
 		model.addObject("msg", "You've been logged out successfully.");
 		status="logout";
 	  }
-	  if (status.length() == 0){
+	 /* if (status.length() == 0){
 		  model.setViewName("Welcome");
 	  }
-	  else
+	  else*/
 	  model.setViewName("Login");
 
 	  return model;
 
 	}
 	
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	/*@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public ModelAndView welcomePage(){
 		
 		System.out.println("UserAccessController.welcomePage");
@@ -70,7 +70,7 @@ public class UserAccessController {
 		 model.setViewName("Login");
 		  return model;
 	}
-
+*/
 	//for 403 access denied page
 	@RequestMapping(value = "/Error", method = RequestMethod.GET)
 	public ModelAndView accesssDenied() {
