@@ -52,27 +52,24 @@ public class UserAccessController {
 		model.addObject("msg", "You've been logged out successfully.");
 		status="logout";
 	  }
-	 /* if (status.length() == 0){
-		  model.setViewName("Welcome");
-	  }
-	  else*/
+	 
 	  model.setViewName("Login");
 
 	  return model;
 
 	}
 	
-	/*@RequestMapping(value = "/login", method = RequestMethod.GET)
+/*	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public ModelAndView welcomePage(){
 		
 		System.out.println("UserAccessController.welcomePage");
 		 ModelAndView model = new ModelAndView();
 		 model.setViewName("Login");
 		  return model;
-	}
-*/
+	}*/
+
 	//for 403 access denied page
-	@RequestMapping(value = "/Error", method = RequestMethod.GET)
+	@RequestMapping(value = "/error", method = RequestMethod.GET)
 	public ModelAndView accesssDenied() {
 
 	  ModelAndView model = new ModelAndView();

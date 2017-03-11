@@ -49,6 +49,7 @@
 		<c:if test="${not empty msg}">
 			<div class="msg">${msg}</div>
 		</c:if>
+		<%-- <c:url var="loginUrl" value="/login" /> --%>
 		<c:url var="loginUrl" value="/login" />
 		 <form action="${loginUrl}" method='POST'>
 
