@@ -9,7 +9,11 @@
 #footer{
 	background: #6699ff;
 	color: white;
-	margin: 20px;
+	
+	position:absolute;
+	bottom: 20px;
+	left:20px;
+	right: 20px;
 }
 </style>
 </head>

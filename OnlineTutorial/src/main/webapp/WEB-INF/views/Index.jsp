@@ -21,6 +21,7 @@ margin-right:20px;
 <marquee><h2>This is index page</h2></marquee>
 <br/>
 <br/>
+
  <jsp:include page="Footer.jsp" />
 </body>
 </html>
