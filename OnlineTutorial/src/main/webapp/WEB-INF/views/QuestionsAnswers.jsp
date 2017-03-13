@@ -10,59 +10,69 @@
 </head>
 <body>
 
-<jsp:include page="Header.jsp" />
-<div style="margin:20px;">
-	<fieldset>
-		<legend>Questions And Answers</legend>
-		<c:if test="${!empty listOfQnsAns}">
-			<table>
-				<c:forEach items="${listOfQnsAns}" var="qnsAns">
-					<tr>
-						<table style="border-width 1px;">
-							<tr>
-								<td><b>${qnsAns.question}</b></td>
-								
-							</tr>
-							<tr>
-								<td>
-								<input type="radio" name="optionsA" value="${qnsAns.optionA}"> A. ${qnsAns.optionA}
-								 </td>
-							</tr>
-							<tr>
-								<td>
-								<input type="radio" name="optionsB" value="${qnsAns.optionB}">
-								B. ${qnsAns.optionB}</td>
-								
-							</tr>
-							<tr>
-								<td>
-								<input type="radio" name="optionsC" value="${qnsAns.optionC}">
-								C. ${qnsAns.optionC}
-								</td>
-							</tr>
-							<tr>
-								<td><input type="radio" name="optionsD"
-									value="${qnsAns.optionD}"> D. ${qnsAns.optionD}</td>
+	<jsp:include page="Header.jsp" />
 
-							</tr>
-							<tr>
-							<td colspan="2"> Answer: <b>${qnsAns.answer}</b> </td>
-							</tr>
-							<tr>
-							<td colspan="2"> Explanations: ${qnsAns.explanations} </td>
-							</tr>
-							<tr>
-							<td colspan="2"> Related Links: ${qnsAns.relatedLinks} </td>
-							</tr>
-							
-						</table>
+	<div id="contentsDiv" style="margin: 20px; text-align: center;">
+		<c:url var="submitQns" value="submitQns" ></c:url>
+
+		<form action="${addAction}" commandName="">
+		<fieldset style="display: inline-block; text-align: ">
+			<legend>Questions And Answers</legend>
+			<c:if test="${!empty listOfQnsAns}">
+				<table>
+					<c:forEach items="${listOfQnsAns}" var="qnsAns" varStatus="loop">
+						<!-- <tr> -->
+						<!-- 						<table style="border-width 1px;">-->
+						<tr>
+							<td colspan="2"><b>${loop.count}. ${qnsAns.question}</b></td>
+
+						</tr>
+						<tr>
+							<td colspan="2"><input type="radio"
+								name="options${loop.count}" value="${qnsAns.optionA}">
+								A. ${qnsAns.optionA}</td>
+						</tr>
+						<tr>
+							<td colspan="2"><input type="radio"
+								name="options${loop.count}" value="${qnsAns.optionB}">
+								B. ${qnsAns.optionB}</td>
+
+						</tr>
+						<tr>
+							<td colspan="2"><input type="radio"
+								name="options${loop.count}" value="${qnsAns.optionC}">
+								C. ${qnsAns.optionC}</td>
+						</tr>
+						<tr>
+							<td colspan="2"><input type="radio"
+								name="options${loop.count}" value="${qnsAns.optionD}">
+								D. ${qnsAns.optionD}</td>
+
+						</tr>
+						<tr>
+							<td colspan="2">Answer: <b>${qnsAns.answer}</b>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2">Explanations: ${qnsAns.explanations}</td>
+						</tr>
+						<tr>
+							<td colspan="2">Related Links: ${qnsAns.relatedLinks}</td>
+						</tr>
+
+						<!-- </table> -->
+						<!-- 	</tr> -->
+					</c:forEach>
+					<tr align="center">
+						<td colspan="2"><input type="reset" value="reset" />
+							&nbsp;&nbsp; <input type="submit" value="submit" /></td>
 					</tr>
-				</c:forEach>
-			</table>
-		</c:if>
-	</fieldset>
+				</table>
+			</c:if>
+		</fieldset>
+		</form>
 	</div>
- <jsp:include page="Footer.jsp" />
+	<jsp:include page="Footer.jsp" />
 
 </body>
 </html>

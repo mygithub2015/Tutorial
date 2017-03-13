@@ -10,10 +10,8 @@
 	background: #6699ff;
 	color: white;
 	
-	position:absolute;
-	bottom: 20px;
-	left:20px;
-	right: 20px;
+	
+	margin:20px;
 }
 </style>
 </head>

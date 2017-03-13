@@ -14,8 +14,8 @@
 		Add Questions And Answers
 	</h2>
 	<c:url var="addAction" value="/AddQuestionsAnswers"></c:url>
-	<div id="questionAnswerDiv" style="margin:20px;">
-		<fieldset>
+	<div id="questionAnswerDiv" style="margin:20px; text-align: center;">
+		<fieldset style="display: inline-block;">
 			<legend>Questions And Answers</legend>
 			<form:form action="${addAction}" commandName="questionsAnswers">
 				<table>
