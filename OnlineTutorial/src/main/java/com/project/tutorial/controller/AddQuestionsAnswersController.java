@@ -70,27 +70,7 @@ public class AddQuestionsAnswersController {
 		
 	}
 	
-	@RequestMapping(value = "/showQuestionsAnswers", method = RequestMethod.GET)
-	public ModelAndView showQuestionsAnswers(){
-		
-	/*	int courseId = qa.getCourseId();
-		
-		Course c = this.courseService.getCourseById(courseId);
-		
-		qa.setCourse(c);
-		*/
-		ModelAndView model = new ModelAndView();
-		System.out.println("In DispatcherController.showQuestionsAnswers method");
-		
-		
-		List<QuestionsAnswers> listOfQnsAns =  this.courseService.getListOfQnsAns();
-		model.addObject("listOfQnsAns",listOfQnsAns);
-		
-		System.out.println(listOfQnsAns);
-		model.setViewName("QuestionsAnswers");
-		return model;
-		
-	}
+
 	
 	
 

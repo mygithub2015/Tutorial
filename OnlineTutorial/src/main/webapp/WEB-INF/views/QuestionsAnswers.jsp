@@ -13,44 +13,54 @@
 	<jsp:include page="Header.jsp" />
 
 	<div id="contentsDiv" style="margin: 20px; text-align: center;">
-		<c:url var="submitQns" value="submitQns" ></c:url>
+		<c:url var="submitQns" value="showQuestionsAnswers" ></c:url>
 
-		<form action="${addAction}" commandName="">
-		<fieldset style="display: inline-block; text-align: ">
+		<form:form action="${submitQns}" modelAttribute="answerList" method="post">
+		<fieldset style="display: inline-block; text-align; ">
 			<legend>Questions And Answers</legend>
-			<c:if test="${!empty listOfQnsAns}">
+			<c:if test="${!empty questionList.listOfQnsAns}">
 				<table>
-					<c:forEach items="${listOfQnsAns}" var="qnsAns" varStatus="loop">
+					<c:forEach items="${questionList.listOfQnsAns}" var="qnsAns" varStatus="loop">
 						<!-- <tr> -->
 						<!-- 						<table style="border-width 1px;">-->
+						
+						<tr>
+						<td colspan="2"> <input type="hidden" name="userAnswer[${loop.index}].questionId" value="${qnsAns.questionId}">
+						</td>
+						
+						</tr>
 						<tr>
 							<td colspan="2"><b>${loop.count}. ${qnsAns.question}</b></td>
 
 						</tr>
 						<tr>
 							<td colspan="2"><input type="radio"
-								name="options${loop.count}" value="${qnsAns.optionA}">
+								name="userAnswer[${loop.index}].answer" value="${qnsAns.optionA}">
 								A. ${qnsAns.optionA}</td>
 						</tr>
 						<tr>
 							<td colspan="2"><input type="radio"
-								name="options${loop.count}" value="${qnsAns.optionB}">
+								name="userAnswer[${loop.index}].answer" value="${qnsAns.optionB}">
 								B. ${qnsAns.optionB}</td>
 
 						</tr>
 						<tr>
 							<td colspan="2"><input type="radio"
-								name="options${loop.count}" value="${qnsAns.optionC}">
+								name="userAnswer[${loop.index}].answer" value="${qnsAns.optionC}">
 								C. ${qnsAns.optionC}</td>
 						</tr>
 						<tr>
 							<td colspan="2"><input type="radio"
-								name="options${loop.count}" value="${qnsAns.optionD}">
+								name="userAnswer[${loop.index}].answer" value="${qnsAns.optionD}">
 								D. ${qnsAns.optionD}</td>
 
 						</tr>
 						<tr>
-							<td colspan="2">Answer: <b>${qnsAns.answer}</b>
+							<td colspan="2">Your Answer: <b><c:out value="${listOfUserAnswers[loop.index].answer}" /></b>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2">Correct Answer: <b>${qnsAns.answer}</b>
 							</td>
 						</tr>
 						<tr>
@@ -70,7 +80,8 @@
 				</table>
 			</c:if>
 		</fieldset>
-		</form>
+		</form:form>
+		
 	</div>
 	<jsp:include page="Footer.jsp" />
 
