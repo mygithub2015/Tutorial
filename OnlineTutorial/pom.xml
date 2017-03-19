@@ -19,6 +19,7 @@
 		<org.slf4j-version>1.7.5</org.slf4j-version>
 		<hibernate.version>4.3.5.Final</hibernate.version>
 		<failOnMissingWebXml>false</failOnMissingWebXml>
+		<jackson.version>2.6.3</jackson.version>
 	</properties>
 
 	<dependencies>
@@ -46,6 +47,20 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>${org.springframework-version}</version>
 		</dependency>
+		
+		<!-- Need this for json to/from object -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+		
 
 		<!-- Hibernate -->
 		<dependency>
@@ -147,4 +162,6 @@
 		</dependency>
 
 	</dependencies>
+	
+	
 </project>

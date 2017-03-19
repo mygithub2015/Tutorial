@@ -20,5 +20,8 @@ public interface CourseService {
 	void addQuestionsAnswers(QuestionsAnswers qa);
 	
 	List<QuestionsAnswers> getListOfQnsAns();
+	
+	//get the list of questions and answers based on the courseId
+	List<QuestionsAnswers> getListOfQnsAnsByCourseId(int courseId);
 
 }

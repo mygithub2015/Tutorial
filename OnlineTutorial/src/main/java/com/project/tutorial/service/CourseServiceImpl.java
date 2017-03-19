@@ -64,4 +64,10 @@ public class CourseServiceImpl implements CourseService{
 		return this.courseDao.getListOfQnsAns();
 	}
 
+	@Transactional
+	public List<QuestionsAnswers> getListOfQnsAnsByCourseId(int courseId) {
+		// TODO Auto-generated method stub
+		return this.courseDao.getListOfQnsAnsByCourseId(courseId);
+	}
+
 }

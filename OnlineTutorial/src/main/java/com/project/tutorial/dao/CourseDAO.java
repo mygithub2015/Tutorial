@@ -21,6 +21,11 @@ public interface CourseDAO {
 
 	List<QuestionsAnswers> getListOfQnsAns();
 	
+	List<QuestionsAnswers> getListOfQnsAnsByCourseId(int courseId);
+	
+	
+	
+	
 	
 
 }

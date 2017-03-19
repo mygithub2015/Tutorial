@@ -3,6 +3,7 @@ package com.project.tutorial.dao;
 import java.util.List;
 
 import org.hibernate.HibernateException;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
@@ -99,6 +100,19 @@ public class CourseDAOImpl implements CourseDAO{
 		}
 		return listOfQnsAns;
 		
+	}
+
+	public List<QuestionsAnswers> getListOfQnsAnsByCourseId(int courseId) {
+		// TODO Auto-generated method stub
+		Session session = this.sessionFactory.getCurrentSession();
+		
+		String hql = "FROM QuestionsAnswers QA WHERE QA.courseId = :courseId";
+		Query query = session.createQuery(hql);
+		query.setInteger("courseId", courseId);
+		
+		List<QuestionsAnswers> listOfQnsAns = (List<QuestionsAnswers>) query.list();
+		System.out.println("listOfQnsAns: "+listOfQnsAns);
+		return listOfQnsAns;
 	}
 
 }

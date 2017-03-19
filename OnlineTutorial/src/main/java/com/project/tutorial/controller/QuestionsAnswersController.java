@@ -8,14 +8,17 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.support.RequestContextUtils;
 
 import com.project.tutorial.model.AnswerList;
+import com.project.tutorial.model.Course;
 import com.project.tutorial.model.QuestionsAnswers;
 import com.project.tutorial.model.QuestionsList;
 import com.project.tutorial.model.UserAnswer;
@@ -37,7 +40,7 @@ public class QuestionsAnswersController {
 	}
 
 	@RequestMapping(value = "/showQuestionsAnswers", method = RequestMethod.GET)
-	public ModelAndView showQuestionsAnswers( HttpServletRequest request) {
+	public ModelAndView showQuestionsAnswers(HttpServletRequest request) {
 
 		/*
 		 * int courseId = qa.getCourseId();
@@ -53,7 +56,7 @@ public class QuestionsAnswersController {
 		
 		QuestionsList	questionsList = new QuestionsList();
 
-		List<QuestionsAnswers> listOfQnsAns = this.courseService.getListOfQnsAns();
+		/*List<QuestionsAnswers> listOfQnsAns = this.courseService.getListOfQnsAns();*/
 		
 		/*AnswerList answerList  = (AnswerList) ((Model) model).asMap().get("answerList");*/
 		
@@ -61,16 +64,20 @@ public class QuestionsAnswersController {
 		
 		Map<String, ?> flashMap = RequestContextUtils.getInputFlashMap(request);
 		List<UserAnswer> listOfUserAnswers = null;
+		List<QuestionsAnswers> listOfQueAns = null;
 		if (flashMap != null) {
 		//if(answerList == null)
 		// answerList = new AnswerList();
 			
 			listOfUserAnswers = (List<UserAnswer>) flashMap.get("listOfUserAnswers");
+			listOfQueAns = (List<QuestionsAnswers>) flashMap.get("queAnsList");
 		}
 
-		questionsList.setListOfQnsAns(listOfQnsAns);
+		questionsList.setListOfQnsAns(listOfQueAns);
 
 		model.addObject("questionList", questionsList);
+		
+		System.out.println("questionList: "+questionsList);
 
 		//model.addObject("answerList", answerList);
 		
@@ -78,7 +85,7 @@ public class QuestionsAnswersController {
 		model.addObject("listOfUserAnswers", listOfUserAnswers);
 		System.out.println("showQuestionsAnswers -  GET");
 		//System.out.println(listOfUserAnswers);
-
+		model.addObject("listCourses", this.courseService.getListOfCourses());
 
 		System.out.println(questionsList);
 
@@ -96,43 +103,13 @@ public class QuestionsAnswersController {
 			System.out.println(userAnswer);
 		}
 
-		//request.setAttribute("ansList", answerList);
-		/*ModelAndView model = new ModelAndView();
-		model.addObject("questionList", questionList);
-		model.addObject("answerList", answerList);
-
-		return model;
-		model.addObject("listOfUserAnswers", answerList.getUserAnswer());
-		model.setViewName("showAnswers");
-		
-		new RedirectView("showAnswers")*/
-		
-		//ModelAndView model = new ModelAndView(new RedirectView("showQuestionsAnswers"));
-		//model.addObject("answerList", answerList);
-		//model.addObject("listOfUserAnswers", answerList.getUserAnswer());
-		
-		//redirectAttributes.addFlashAttribute("answerList", answerList);
+	
 		redirectAttributes.addFlashAttribute("listOfUserAnswers", answerList.getUserAnswer());
         return "redirect:/showQuestionsAnswers";
         
-		//return "redirect:showQuestionsAnswers";
 		
-		//return model;
 
 	}
 	
 	
-	
-	/*@RequestMapping(value = "/showAnswers", method = RequestMethod.GET)
-	public String showAnswers(@RequestParam(value = "listOfUserAnswers", required = false) List<UserAnswer> listOfUserAnswers) {
-
-		
-		System.out.println("In showAnswers");
-		System.out.println("listOfUserAnswers:"+listOfUserAnswers);
-		
-		
-		return "ShowAnswers";
-
-	}
-*/
 }

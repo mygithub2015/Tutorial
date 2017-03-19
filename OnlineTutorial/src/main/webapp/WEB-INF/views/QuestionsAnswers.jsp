@@ -7,10 +7,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Questions And Answers</title>
+<script src=".resources/js/jquery-3.1.1.min.js">
+	
+</script>
 </head>
 <body>
 
 	<jsp:include page="Header.jsp" />
+
+	
 
 	<div id="contentsDiv" style="margin: 20px; text-align: center;">
 		<c:url var="submitQns" value="showQuestionsAnswers"></c:url>
@@ -80,8 +85,8 @@
 									</tr>
 									<tr>
 										<td colspan="2"><input type="radio"
-											name="userAnswer[${loop.index}].answer" value="A">
-											A. ${qnsAns.optionA}</td>
+											name="userAnswer[${loop.index}].answer" value="A"> A.
+											${qnsAns.optionA}</td>
 									</tr>
 									<tr>
 										<td colspan="2"><input type="radio"
@@ -114,13 +119,13 @@
 									</tr>
 									<tr>
 										<td colspan="2"><input type="radio"
-											name="userAnswer[${loop.index}].answer" value="A">
-											A. ${qnsAns.optionA}</td>
+											name="userAnswer[${loop.index}].answer" value="A"> A.
+											${qnsAns.optionA}</td>
 									</tr>
 									<tr>
 										<td colspan="2"><input type="radio"
-											name="userAnswer[${loop.index}].answer" value="B">
-											B. ${qnsAns.optionB}</td>
+											name="userAnswer[${loop.index}].answer" value="B"> B.
+											${qnsAns.optionB}</td>
 
 									</tr>
 									<tr>
@@ -148,19 +153,19 @@
 									</tr>
 									<tr>
 										<td colspan="2"><input type="radio"
-											name="userAnswer[${loop.index}].answer" value="A">
-											A. ${qnsAns.optionA}</td>
+											name="userAnswer[${loop.index}].answer" value="A"> A.
+											${qnsAns.optionA}</td>
 									</tr>
 									<tr>
 										<td colspan="2"><input type="radio"
-											name="userAnswer[${loop.index}].answer" value="B">
-											B. ${qnsAns.optionB}</td>
+											name="userAnswer[${loop.index}].answer" value="B"> B.
+											${qnsAns.optionB}</td>
 
 									</tr>
 									<tr>
 										<td colspan="2"><input type="radio"
-											name="userAnswer[${loop.index}].answer" value="C">
-											C. ${qnsAns.optionC}</td>
+											name="userAnswer[${loop.index}].answer" value="C"> C.
+											${qnsAns.optionC}</td>
 									</tr>
 									<tr>
 										<td colspan="2"><input type="radio"
@@ -182,24 +187,24 @@
 									</tr>
 									<tr>
 										<td colspan="2"><input type="radio"
-											name="userAnswer[${loop.index}].answer" value="A">
-											A. ${qnsAns.optionA}</td>
+											name="userAnswer[${loop.index}].answer" value="A"> A.
+											${qnsAns.optionA}</td>
 									</tr>
 									<tr>
 										<td colspan="2"><input type="radio"
-											name="userAnswer[${loop.index}].answer" value="B">
-											B. ${qnsAns.optionB}</td>
+											name="userAnswer[${loop.index}].answer" value="B"> B.
+											${qnsAns.optionB}</td>
 
 									</tr>
 									<tr>
 										<td colspan="2"><input type="radio"
-											name="userAnswer[${loop.index}].answer" value="C">
-											C. ${qnsAns.optionC}</td>
+											name="userAnswer[${loop.index}].answer" value="C"> C.
+											${qnsAns.optionC}</td>
 									</tr>
 									<tr>
 										<td colspan="2"><input type="radio"
-											name="userAnswer[${loop.index}].answer" value="D">
-											D. ${qnsAns.optionD}</td>
+											name="userAnswer[${loop.index}].answer" value="D"> D.
+											${qnsAns.optionD}</td>
 
 									</tr>
 								</c:otherwise>
@@ -234,6 +239,7 @@
 		</form:form>
 
 	</div>
+	
 	<jsp:include page="Footer.jsp" />
 
 </body>
