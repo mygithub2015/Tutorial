@@ -95,7 +95,15 @@
 									<tr>
 										<td colspan="2"><input type="radio"
 											name="userAnswer[${loop.index}].answer" value="A" checked>
-											A. ${qnsAns.optionA}</td>
+											A. ${qnsAns.optionA} 
+											&nbsp;&nbsp;
+											<c:if test="${ans != null && ans eq qnsAns.answer}">
+											<img src="./resources/images/tick.png" alt="right"/>
+											</c:if>
+											<c:if test="${ans != null && ans ne qnsAns.answer}">
+											<img src="./resources/images/wrong.jpeg" alt="wrong"/>
+											</c:if>
+										</td>
 									</tr>
 									<tr>
 										<td colspan="2"><input type="radio"
@@ -134,7 +142,14 @@
 									<tr>
 										<td colspan="2"><input type="radio"
 											name="userAnswer[${loop.index}].answer" value="B" checked>
-											B. ${qnsAns.optionB}</td>
+											B. ${qnsAns.optionB}&nbsp;&nbsp;
+											<c:if test="${ans != null && ans eq qnsAns.answer}">
+											<img src="./resources/images/tick.png" alt="right"/>
+											</c:if>
+											<c:if test="${ans != null && ans ne qnsAns.answer}">
+											<img src="./resources/images/wrong.jpeg" alt="wrong"/>
+											</c:if>
+										</td>
 
 									</tr>
 									<tr>
@@ -174,7 +189,14 @@
 									<tr>
 										<td colspan="2"><input type="radio"
 											name="userAnswer[${loop.index}].answer" value="C" checked>
-											C. ${qnsAns.optionC}</td>
+											C. ${qnsAns.optionC}&nbsp;&nbsp;
+											<c:if test="${ans != null && ans eq qnsAns.answer}">
+											<img src="./resources/images/tick.png" alt="right"/>
+											</c:if>
+											<c:if test="${ans != null && ans ne qnsAns.answer}">
+											<img src="./resources/images/wrong.jpeg" alt="wrong"/>
+											</c:if>
+										</td>
 									</tr>
 									<tr>
 										<td colspan="2"><input type="radio"
@@ -213,7 +235,15 @@
 									<tr>
 										<td colspan="2"><input type="radio"
 											name="userAnswer[${loop.index}].answer" value="D" checked>
-											D. ${qnsAns.optionD}</td>
+											D. ${qnsAns.optionD}
+											&nbsp;&nbsp;
+											<c:if test="${ans != null && ans eq qnsAns.answer}">
+											<img src="./resources/images/tick.png" alt="right"/>
+											</c:if>
+											<c:if test="${ans != null && ans ne qnsAns.answer}">
+											<img src="./resources/images/wrong.jpeg" alt="wrong"/>
+											</c:if>
+										</td>
 
 									</tr>
 								</c:when>
@@ -253,10 +283,10 @@
 								</c:otherwise>
 							</c:choose>
 							<c:if test="${ans != null}">
-								<tr>
+								<%-- <tr>
 									<td colspan="2">Your Answer: <b><c:out value="${ans}" /></b>
 									</td>
-								</tr>
+								</tr> --%>
 								<tr>
 									<td colspan="2">Correct Answer: <b>${qnsAns.answer}</b>
 									</td>
