@@ -19,15 +19,15 @@
 	function examTimer() {
 		if (parseInt(sec) > 0) {
 
-			document.getElementById("showtime").innerHTML = "<b>Time Remaining</b>:<b>"
-					+ min + "</b> Minutes ,<b>" + sec + "</b> Seconds";
+			document.getElementById("showtime").innerHTML = "<b>Time Remaining</b>:<b style='color:red;'>"
+					+ min + "</b> Minutes ,<b style='color:red;'>" + sec + "</b> Seconds";
 			sec = parseInt(sec) - 1;
 			tim = setTimeout("examTimer()", 1000);
 		} else {
 
 			if (parseInt(min) == 0 && parseInt(sec) == 0) {
-				document.getElementById("showtime").innerHTML = "<b>Time Remaining</b>: <b>"
-						+ min + "</b> Minutes ,<b>" + sec + "</b> Seconds";
+				document.getElementById("showtime").innerHTML = "<b>Time Remaining</b>: <b style='color:red;'>"
+						+ min + "</b> Minutes ,<b style='color:red;'>" + sec + "</b> Seconds";
 				alert("Time Up");
 				//   document.questionForm.minute.value=0;
 				// document.questionForm.second.value=0;
@@ -36,8 +36,8 @@
 			}
 
 			if (parseInt(sec) == 0) {
-				document.getElementById("showtime").innerHTML = "<b>Time Remaining</b>: <b>"
-						+ min + " </b>Minutes ,<b>" + sec + "</b> Seconds";
+				document.getElementById("showtime").innerHTML = "<b>Time Remaining</b>: <b style='color:red;'>"
+						+ min + " </b>Minutes ,<b style='color:red;'>" + sec + "</b> Seconds";
 				min = parseInt(min) - 1;
 				sec = 59;
 				tim = setTimeout("examTimer()", 1000);
@@ -52,7 +52,7 @@
 	<jsp:include page="Header.jsp" />
 
 
-	<div style="text-align: right; margin:20px;">	<c:if test="${empty listOfUserAnswers}">
+	<div style="text-align: right; margin:20px;">	<c:if test="${!empty questionList.listOfQnsAns && empty listOfUserAnswers}">
 			<span  id="showtime"></span>
 			<script>
 			examTimer();
