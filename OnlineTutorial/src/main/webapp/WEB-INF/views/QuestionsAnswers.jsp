@@ -10,19 +10,61 @@
 <script src=".resources/js/jquery-3.1.1.min.js">
 	
 </script>
+<script>
+	var tim;
+	var min = '2';//'${sessionScope.min}';
+	var sec = '00';//'${sessionScope.sec}';
+	var f = new Date();
+
+	function examTimer() {
+		if (parseInt(sec) > 0) {
+
+			document.getElementById("showtime").innerHTML = "<b>Time Remaining</b>:<b>"
+					+ min + "</b> Minutes ,<b>" + sec + "</b> Seconds";
+			sec = parseInt(sec) - 1;
+			tim = setTimeout("examTimer()", 1000);
+		} else {
+
+			if (parseInt(min) == 0 && parseInt(sec) == 0) {
+				document.getElementById("showtime").innerHTML = "<b>Time Remaining</b>: <b>"
+						+ min + "</b> Minutes ,<b>" + sec + "</b> Seconds";
+				alert("Time Up");
+				//   document.questionForm.minute.value=0;
+				// document.questionForm.second.value=0;
+				document.questionForm.submit();
+
+			}
+
+			if (parseInt(sec) == 0) {
+				document.getElementById("showtime").innerHTML = "<b>Time Remaining</b>: <b>"
+						+ min + " </b>Minutes ,<b>" + sec + "</b> Seconds";
+				min = parseInt(min) - 1;
+				sec = 59;
+				tim = setTimeout("examTimer()", 1000);
+			}
+
+		}
+	}
+</script>
 </head>
-<body>
+<body onload="">
 
 	<jsp:include page="Header.jsp" />
 
 
-
+	<div style="text-align: right; margin:20px;">	<c:if test="${empty listOfUserAnswers}">
+			<span  id="showtime"></span>
+			<script>
+			examTimer();
+			</script>
+		</c:if>
+	</div>
 	<div id="contentsDiv" style="margin: 20px; text-align: center;">
 		<c:url var="submitQns" value="showQuestionsAnswers"></c:url>
-
+		
 
 		<form:form action="${submitQns}" modelAttribute="answerList"
-			method="post">
+			method="post" id="questionForm" name="questionForm">
 			<fieldset style="display: inline-block;">
 				<legend>Questions And Answers</legend>
 
