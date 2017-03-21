@@ -15,10 +15,11 @@
 
 	<jsp:include page="Header.jsp" />
 
-	
+
 
 	<div id="contentsDiv" style="margin: 20px; text-align: center;">
 		<c:url var="submitQns" value="showQuestionsAnswers"></c:url>
+
 
 		<form:form action="${submitQns}" modelAttribute="answerList"
 			method="post">
@@ -235,11 +236,15 @@
 						</tr>
 					</table>
 				</c:if>
+				<c:if test="${empty  questionList.listOfQnsAns}">
+					<h4 style="color: red;">Sorry! no questions have been added
+						yet. We promise to do it very soon...</h4>
+				</c:if>
 			</fieldset>
 		</form:form>
 
 	</div>
-	
+
 	<jsp:include page="Footer.jsp" />
 
 </body>

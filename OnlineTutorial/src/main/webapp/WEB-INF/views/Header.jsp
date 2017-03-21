@@ -132,7 +132,7 @@ background-color
 					</sec:authorize>
 					<sec:authorize access="hasRole('ROLE_USER')">
 						<li><a class="active" href="#home">Home</a></li>
-						<li><a class="userLink" href="showQuestionsAnswers">Show
+						<li><a class="userLink" href="selectCourse">Show
 								Qns & Ans</a></li>
 						<li><a class="userLink" href="#contactUs">Contact Us</a></li>
 					</sec:authorize>

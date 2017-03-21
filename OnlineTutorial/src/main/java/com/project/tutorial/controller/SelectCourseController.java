@@ -1,5 +1,7 @@
 package com.project.tutorial.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -40,7 +42,8 @@ public class SelectCourseController  {
 		//mav.addObject("queAnsList", this.courseService.getListOfQnsAnsByCourseId(courseId));
 		//mav.setViewName("redirect:/showQuestionsAnswers");
 		
-		redirectAttributes.addFlashAttribute("queAnsList",  this.courseService.getListOfQnsAnsByCourseId(courseId));
+		//redirectAttributes.addFlashAttribute("queAnsList",  this.courseService.getListOfQnsAnsByCourseId(courseId));
+		redirectAttributes.addFlashAttribute("courseId",  courseId);
 		
 		return "redirect:/showQuestionsAnswers";
 		
@@ -51,7 +54,8 @@ public class SelectCourseController  {
 		
 		ModelAndView mav = new ModelAndView();
 		/*mav.addObject("courseList", this.courseService.getListOfCourses());*/
-		mav.addObject("course", new Course());
+		List<Course> courses = this.courseService.getListOfCourses();
+		mav.addObject("courses", courses);
 		mav.setViewName("SelectCourse");
 		return mav;
 	}

@@ -28,6 +28,7 @@ import com.project.tutorial.service.CourseService;
 public class QuestionsAnswersController {
 
 	private CourseService courseService;
+	private Integer courseId;
 
 	public QuestionsAnswersController() {
 		System.out.println("In QuestionsAnswersController constructor...");
@@ -38,7 +39,7 @@ public class QuestionsAnswersController {
 	public void setCourseService(CourseService service) {
 		this.courseService = service;
 	}
-
+	
 	@RequestMapping(value = "/showQuestionsAnswers", method = RequestMethod.GET)
 	public ModelAndView showQuestionsAnswers(HttpServletRequest request) {
 
@@ -62,17 +63,27 @@ public class QuestionsAnswersController {
 		
 		//AnswerList answerList = null;
 		
+		
+		
 		Map<String, ?> flashMap = RequestContextUtils.getInputFlashMap(request);
 		List<UserAnswer> listOfUserAnswers = null;
 		List<QuestionsAnswers> listOfQueAns = null;
+		
+		Integer passedCourseId = null;
 		if (flashMap != null) {
 		//if(answerList == null)
 		// answerList = new AnswerList();
 			
 			listOfUserAnswers = (List<UserAnswer>) flashMap.get("listOfUserAnswers");
-			listOfQueAns = (List<QuestionsAnswers>) flashMap.get("queAnsList");
+			passedCourseId = (Integer) flashMap.get("courseId");
+			
+			
 		}
-
+		if(this.courseId == null || (passedCourseId != null && this.courseId.intValue() != passedCourseId.intValue() )){
+			System.out.println("updating the course id with passedCourseId: "+passedCourseId);
+			this.courseId = passedCourseId;
+		}
+		listOfQueAns = this.courseService.getListOfQnsAnsByCourseId(this.courseId);
 		questionsList.setListOfQnsAns(listOfQueAns);
 
 		model.addObject("questionList", questionsList);
@@ -82,6 +93,7 @@ public class QuestionsAnswersController {
 		//model.addObject("answerList", answerList);
 		
 		//model.addObject("listOfUserAnswers", answerList.getUserAnswer());
+		model.addObject("listOfQueAns", listOfQueAns);
 		model.addObject("listOfUserAnswers", listOfUserAnswers);
 		System.out.println("showQuestionsAnswers -  GET");
 		//System.out.println(listOfUserAnswers);
@@ -96,7 +108,7 @@ public class QuestionsAnswersController {
 	}
 
 	@RequestMapping(value = "/showQuestionsAnswers", method = RequestMethod.POST)
-	public String showQuestionsAnswers(@ModelAttribute("answerList") AnswerList answerList,RedirectAttributes redirectAttributes) {
+	public String showQuestionsAnswers(@ModelAttribute("questionList") QuestionsList questionList, @ModelAttribute("answerList") AnswerList answerList,RedirectAttributes redirectAttributes) {
 
 		for (UserAnswer userAnswer : answerList.getUserAnswer()) {
 
@@ -105,6 +117,7 @@ public class QuestionsAnswersController {
 
 	
 		redirectAttributes.addFlashAttribute("listOfUserAnswers", answerList.getUserAnswer());
+		
         return "redirect:/showQuestionsAnswers";
         
 		
