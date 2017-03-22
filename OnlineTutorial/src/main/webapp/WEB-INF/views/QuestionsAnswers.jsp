@@ -20,14 +20,20 @@
 		if (parseInt(sec) > 0) {
 
 			document.getElementById("showtime").innerHTML = "<b>Time Remaining</b>:<b style='color:red;'>"
-					+ min + "</b> Minutes ,<b style='color:red;'>" + sec + "</b> Seconds";
+					+ min
+					+ "</b> Minutes ,<b style='color:red;'>"
+					+ sec
+					+ "</b> Seconds";
 			sec = parseInt(sec) - 1;
 			tim = setTimeout("examTimer()", 1000);
 		} else {
 
 			if (parseInt(min) == 0 && parseInt(sec) == 0) {
 				document.getElementById("showtime").innerHTML = "<b>Time Remaining</b>: <b style='color:red;'>"
-						+ min + "</b> Minutes ,<b style='color:red;'>" + sec + "</b> Seconds";
+						+ min
+						+ "</b> Minutes ,<b style='color:red;'>"
+						+ sec
+						+ "</b> Seconds";
 				alert("Time Up");
 				//   document.questionForm.minute.value=0;
 				// document.questionForm.second.value=0;
@@ -37,7 +43,10 @@
 
 			if (parseInt(sec) == 0) {
 				document.getElementById("showtime").innerHTML = "<b>Time Remaining</b>: <b style='color:red;'>"
-						+ min + " </b>Minutes ,<b style='color:red;'>" + sec + "</b> Seconds";
+						+ min
+						+ " </b>Minutes ,<b style='color:red;'>"
+						+ sec
+						+ "</b> Seconds";
 				min = parseInt(min) - 1;
 				sec = 59;
 				tim = setTimeout("examTimer()", 1000);
@@ -52,16 +61,18 @@
 	<jsp:include page="Header.jsp" />
 
 
-	<div style="text-align: right; margin:20px;">	<c:if test="${!empty questionList.listOfQnsAns && empty listOfUserAnswers}">
-			<span  id="showtime"></span>
+	<div style="text-align: right; margin: 20px;">
+		<c:if
+			test="${!empty questionList.listOfQnsAns && empty listOfUserAnswers}">
+			<span id="showtime"></span>
 			<script>
-			examTimer();
+				examTimer();
 			</script>
 		</c:if>
 	</div>
 	<div id="contentsDiv" style="margin: 20px; text-align: center;">
 		<c:url var="submitQns" value="showQuestionsAnswers"></c:url>
-		
+
 
 		<form:form action="${submitQns}" modelAttribute="answerList"
 			method="post" id="questionForm" name="questionForm">
@@ -95,15 +106,12 @@
 									<tr>
 										<td colspan="2"><input type="radio"
 											name="userAnswer[${loop.index}].answer" value="A" checked>
-											A. ${qnsAns.optionA} 
-											&nbsp;&nbsp;
-											<c:if test="${ans != null && ans eq qnsAns.answer}">
-											<img src="./resources/images/tick.png" alt="right"/>
-											</c:if>
-											<c:if test="${ans != null && ans ne qnsAns.answer}">
-											<img src="./resources/images/wrong.jpeg" alt="wrong"/>
-											</c:if>
-										</td>
+											A. ${qnsAns.optionA} &nbsp;&nbsp; <c:if
+												test="${ans != null && ans eq qnsAns.answer}">
+												<img src="./resources/images/tick.png" alt="right" />
+											</c:if> <c:if test="${ans != null && ans ne qnsAns.answer}">
+												<img src="./resources/images/wrong.jpeg" alt="wrong" />
+											</c:if></td>
 									</tr>
 									<tr>
 										<td colspan="2"><input type="radio"
@@ -142,14 +150,12 @@
 									<tr>
 										<td colspan="2"><input type="radio"
 											name="userAnswer[${loop.index}].answer" value="B" checked>
-											B. ${qnsAns.optionB}&nbsp;&nbsp;
-											<c:if test="${ans != null && ans eq qnsAns.answer}">
-											<img src="./resources/images/tick.png" alt="right"/>
-											</c:if>
-											<c:if test="${ans != null && ans ne qnsAns.answer}">
-											<img src="./resources/images/wrong.jpeg" alt="wrong"/>
-											</c:if>
-										</td>
+											B. ${qnsAns.optionB}&nbsp;&nbsp; <c:if
+												test="${ans != null && ans eq qnsAns.answer}">
+												<img src="./resources/images/tick.png" alt="right" />
+											</c:if> <c:if test="${ans != null && ans ne qnsAns.answer}">
+												<img src="./resources/images/wrong.jpeg" alt="wrong" />
+											</c:if></td>
 
 									</tr>
 									<tr>
@@ -189,14 +195,12 @@
 									<tr>
 										<td colspan="2"><input type="radio"
 											name="userAnswer[${loop.index}].answer" value="C" checked>
-											C. ${qnsAns.optionC}&nbsp;&nbsp;
-											<c:if test="${ans != null && ans eq qnsAns.answer}">
-											<img src="./resources/images/tick.png" alt="right"/>
-											</c:if>
-											<c:if test="${ans != null && ans ne qnsAns.answer}">
-											<img src="./resources/images/wrong.jpeg" alt="wrong"/>
-											</c:if>
-										</td>
+											C. ${qnsAns.optionC}&nbsp;&nbsp; <c:if
+												test="${ans != null && ans eq qnsAns.answer}">
+												<img src="./resources/images/tick.png" alt="right" />
+											</c:if> <c:if test="${ans != null && ans ne qnsAns.answer}">
+												<img src="./resources/images/wrong.jpeg" alt="wrong" />
+											</c:if></td>
 									</tr>
 									<tr>
 										<td colspan="2"><input type="radio"
@@ -235,15 +239,12 @@
 									<tr>
 										<td colspan="2"><input type="radio"
 											name="userAnswer[${loop.index}].answer" value="D" checked>
-											D. ${qnsAns.optionD}
-											&nbsp;&nbsp;
-											<c:if test="${ans != null && ans eq qnsAns.answer}">
-											<img src="./resources/images/tick.png" alt="right"/>
-											</c:if>
-											<c:if test="${ans != null && ans ne qnsAns.answer}">
-											<img src="./resources/images/wrong.jpeg" alt="wrong"/>
-											</c:if>
-										</td>
+											D. ${qnsAns.optionD} &nbsp;&nbsp; <c:if
+												test="${ans != null && ans eq qnsAns.answer}">
+												<img src="./resources/images/tick.png" alt="right" />
+											</c:if> <c:if test="${ans != null && ans ne qnsAns.answer}">
+												<img src="./resources/images/wrong.jpeg" alt="wrong" />
+											</c:if></td>
 
 									</tr>
 								</c:when>
@@ -303,8 +304,18 @@
 							<!-- 	</tr> -->
 						</c:forEach>
 						<tr align="center">
-							<td colspan="2"><input type="reset" value="reset" />
-								&nbsp;&nbsp; <input type="submit" value="submit" /></td>
+							<td colspan="2">
+							<c:if test="${ans == null}">
+							<input type="reset" value="reset" />
+								&nbsp;&nbsp; 
+									<input type="submit" value="submit" />
+								</c:if>
+								<c:if test="${ans != null}">
+								<input type="reset" value="reset" disabled="disabled" />
+								&nbsp;&nbsp; 
+								<input type="submit" value="submit" disabled="disabled"/>
+								</c:if>
+								</td>
 						</tr>
 					</table>
 				</c:if>
